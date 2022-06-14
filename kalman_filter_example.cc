@@ -9,6 +9,7 @@
  */
 
 #include "kalman_filter.h"
+#include "matrix.h"
 
 #include <Eigen/Dense>
 #include <iostream>
@@ -47,7 +48,7 @@ int main(int argc, char* argv[]) {
   kf.Predict(u);
 
   Eigen::Matrix<double, kf.meas_signal_length(), 1> z;
-  kf.Update(z);
   z << 0, 0;
+  kf.Update(z);
   return 0;
 }
